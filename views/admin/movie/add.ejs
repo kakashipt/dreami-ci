@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <% include ../../partialAdmin/head %>
+  </head>
+  <body>
+    
+    <% include ../../partialAdmin/theme-switcher %>
+
+    <% include ../../partialAdmin/header %>
+  
+<div class="container-fluid">
+  <div class="row">
+   <% include ../../partialAdmin/sidebar %> 
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Movie Add</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-1 col-sm-12"></div>
+        <div class="col-lg-8 col-md-10 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+                <form action="/admin/movieAdd" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 mt-3">
+                      <label for="title" class="form-label">Title:</label>
+                      <input type="text" class="form-control" id="title" placeholder="Enter Movie Title" name="title">
+                    </div>
+                    
+                    <div class="mb-3 mt-3">
+                      <label for="cinema" class="form-label">Cinema:</label>
+                      <select class="form-select" name="cinemaId" id="cinemaId" aria-label="Default select example">
+                        <% for(var i=0; i<cinemas.length; i++){%>
+                          <option value="<%= cinemas[i]._id %>"><%= cinemas[i].name %></option>
+                          <%}%>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="poster" class="form-label">Poster</label>
+                      <input type="file" class="form-control" id="poster" placeholder="Insert cover" name="poster" accept="image/*">
+                    </div>
+                    <div class="mb-3 mt-3">
+                    <label for="category" class="form-label">Category:</label>
+                        <select class="form-select" name="category" id="category" multiple aria-label="Default select example">
+                          <option value="Action">Action</option>
+                          <option value="Horror">Horror</option>
+                          <option value="crime">Crime</option>
+                          <option value="fantancy">Fantasy</option>
+                          <option value="romance">Romance</option>
+                          <option value="science fiction">Science fiction</option>
+                          <option value="triller">Triller</option>
+                          <option value="war">War</option>
+                          <option value="western">Western</option>
+                        </select>
+                      </div>
+                    <div class="mb-3 mt-3">
+                      <label for="cast" class="form-label">Cast:</label>
+                      <input type="text" class="form-control" id="cast" placeholder="Enter cast" name="cast">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="director" class="form-label">Director:</label>
+                      <input type="text" class="form-control" id="director" placeholder="Enter director" name="director">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="startDate" class="form-label">Start Date:</label>
+                      <input type="date" class="form-control" id="startDate" placeholder="dd/mm/yyy" name="startDate">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="endtDate" class="form-label">End Date:</label>
+                      <input type="date" class="form-control" id="endDate" placeholder="dd/mm/yyy" name="endDate">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="releaseDate" class="form-label">Release Date:</label>
+                      <input type="date" class="form-control" id="releaseDAte" placeholder="dd/mm/yyy" name="releaseDate">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="duraton" class="form-label">Duration:</label>
+                      <input type="text" class="form-control" id="duration" placeholder="Enter duration" name="duration">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="trailer" class="form-label">Trailer Link:</label>
+                      <input type="text" class="form-control" id="trailer" placeholder="Enter cast" name="trailer">
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <div class="form-floating">
+                        <textarea class="form-control" name="syn" id="syn" placeholder="Synopsis" id="syn" style="height: 100px;"></textarea>
+                        <label for="syn">Synopsis</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+                </form>
+            </div>
+          </div>
+        </div>
+            <div class="col-lg-2 col-md-1 col-sm-12"></div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    
